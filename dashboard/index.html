@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Dashboard - Escala</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="../js/dashboard.js" defer></script>
+  <script src="../js/authGuard.js" defer></script>
+  <script src="../js/breadcrumbs.js" defer></script>
+</head>
+<body>
+  <div id="loader" class="loader-overlay">
+    <div class="spinner"></div>
+  </div>
+  
+  <header id="site-header">
+    <nav class="nav-container">
+      <a href="../index.html" class="logo">Escala</a>
+      <button id="menu-toggle" class="hamburger" aria-label="Toggle Menu">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="../courses/course.html">Courses</a>
+        <a href="../wishlist/wishlist.html">Wishlist</a>
+        <a href="../cart/index.html">Cart</a>
+        <a href="index.html">Dashboard</a>
+        <a href="#" id="logout-link">Logout</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="dashboard-container">
+    <nav class="breadcrumbs"></nav>
+    <h2>Welcome back, <span id="username">Student</span>!</h2>
+
+    <section class="purchased-courses">
+      <h3>Your Courses</h3>
+      <div id="my-courses" class="courses-grid">
+        <!-- Courses will load here -->
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer">
+    <p>&copy; 2025 Escala</p>
+  </footer>
+</body>
+</html>

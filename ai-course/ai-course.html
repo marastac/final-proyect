@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Course Generator - Escala</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="../js/ai-course.js" defer></script>
+  <script src="../js/breadcrumbs.js" defer></script>
+</head>
+<body>
+    <header id="site-header">
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">Escala</a>
+          
+            <button id="menu-toggle" class="hamburger" aria-label="Toggle Menu">
+              ☰
+            </button>
+          
+            <div class="nav-links" id="nav-links">
+              <a href="../courses/course.html">Courses</a>
+              <a href="../wishlist/wishlist.html">Wishlist</a>
+              <a href="../cart/index.html">Cart</a>
+              <a href="../dashboard/index.html">Dashboard</a>
+              <a href="../auth/login.html">Login</a>
+            </div>
+        </nav>
+          
+      </header>
+      
+
+  <main class="ai-generator">
+    <nav class="breadcrumbs"></nav>
+    <h2>AI Express Course Creator</h2>
+    <form id="ai-form">
+      <label for="idea">Describe your course idea:</label>
+      <textarea id="idea" rows="4" placeholder="e.g. How to start a digital business with no money" required></textarea>
+      <button type="submit" class="btn primary">Generate Course</button>
+    </form>
+
+    <section id="ai-output" class="hidden">
+      <h3>Generated Course:</h3>
+      <div id="course-title"></div>
+      <ul id="course-outline"></ul>
+    </section>
+  </main>
+
+  <footer id="site-footer">
+    <p>&copy; 2025 Escala</p>
+  </footer>
+</body>
+</html>
+

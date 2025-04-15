@@ -1,0 +1,59 @@
+[
+    {
+      "id": "curso001",
+      "titulo": "Intro to Artificial Intelligence",
+      "descripcion": "Learn the basics of AI, machine learning, and neural networks.",
+      "precio": 120,
+      "imagen": "images/cursos/ia-intro.webp"
+    },
+    {
+      "id": "curso002",
+      "titulo": "Start Your Digital Business",
+      "descripcion": "A practical guide to launching your online business and earning passive income.",
+      "precio": 95,
+      "imagen": "images/cursos/negocio-digital.webp"
+    },
+    {
+      "id": "curso003",
+      "titulo": "Personal Development & Productivity",
+      "descripcion": "Improve your habits, manage your time, and unlock personal growth.",
+      "precio": 80,
+      "imagen": "images/cursos/productividad.webp"
+    },
+    {
+      "id": "curso004",
+      "titulo": "ChatGPT for Business",
+      "descripcion": "Discover how to use ChatGPT to improve content, support, and marketing.",
+      "precio": 110,
+      "imagen": "images/cursos/chatgpt-negocios.webp"
+    },
+    {
+      "id": "curso005",
+      "titulo": "Design Effective Online Courses",
+      "descripcion": "Learn how to structure and design impactful educational content.",
+      "precio": 85,
+      "imagen": "images/cursos/diseno-cursos.webp"
+    },
+    {
+      "id": "curso006",
+      "titulo": "Affiliate Marketing 2025",
+      "descripcion": "Step-by-step guide to generating income through affiliate strategies.",
+      "precio": 90,
+      "imagen": "images/cursos/afiliados.webp"
+    },
+    {
+      "id": "curso007",
+      "titulo": "Automate Your Content with AI",
+      "descripcion": "Use AI tools like GPT and Midjourney to scale your creative process.",
+      "precio": 130,
+      "imagen": "images/cursos/automatiza-contenido.webp"
+    },
+    {
+      "id": "curso008",
+      "titulo": "Successful Dropshipping Businesses",
+      "descripcion": "Launch a product store online without inventory and reach global customers.",
+      "precio": 99,
+      "imagen": "images/cursos/dropshipping.webp"
+    }
+  ]
+  

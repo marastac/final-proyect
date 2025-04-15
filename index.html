@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Escala - Learn, Create and Sell</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/main.js" defer></script>
+  <script src="js/breadcrumbs.js" defer></script>
+</head>
+<body>
+    <div id="loader" class="loader-overlay">
+        <div class="spinner"></div>
+    </div>        
+  <!-- Header (modular) -->
+  <header id="site-header">
+    <nav class="nav-container">
+        <a href="index.html" class="logo">Escala</a>
+      
+        <button id="menu-toggle" class="hamburger" aria-label="Toggle Menu">
+          ☰
+        </button>
+      
+        <div class="nav-links" id="nav-links">
+          <a href="courses/course.html">Courses</a>
+          <a href="wishlist/wishlist.html">Wishlist</a>
+          <a href="cart/index.html">Cart</a>
+          <a href="dashboard/index.html">Dashboard</a>
+          <a href="auth/login.html">Login</a>
+        </div>
+    </nav>
+      
+  </header>
+  
+
+  <!-- Modal: Welcome gift -->
+  <div id="gift-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Welcome to Escala!</h2>
+      <p>🎁 Register now and receive a free course on AI!</p>
+      <a href="auth/register.html" class="btn primary">Register</a>
+    </div>
+  </div>
+
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs"></nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Turn Your Knowledge Into Income</h1>
+      <p>Create and sell courses on AI, digital business, personal growth, and more.</p>
+      <a href="auth/register.html" class="btn primary">Start Now</a>
+    </div>
+    <img src="images/hero-banner.webp" alt="Online Courses" />
+  </section>
+
+  <!-- Search and Filter -->
+  <section class="search-filter">
+    <input type="text" id="search" placeholder="Search courses..." />
+    <select id="filter-category">
+      <option value="">All Categories</option>
+      <option value="ai">Artificial Intelligence</option>
+      <option value="business">Business</option>
+      <option value="development">Personal Development</option>
+    </select>
+  </section>
+
+  <!-- Featured Courses -->
+  <section class="featured-courses">
+    <h2>Popular Courses</h2>
+    <div class="courses-grid" id="course-list">
+      <!-- Courses will be loaded by JS -->
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <h2>Subscribe to Our Newsletter</h2>
+    <p>Get tips, offers, and updates in your inbox.</p>
+    <form id="newsletter-form">
+      <input type="email" placeholder="Your email address" required />
+      <button type="submit" class="btn secondary">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- Footer (modular) -->
+  <footer id="site-footer">
+    <p>&copy; 2025 Escala. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+

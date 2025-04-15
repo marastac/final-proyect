@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Cart - Escala</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="../js/cart.js" defer></script>
+  <script src="../js/authGuard.js" defer></script>
+  <script src="../js/breadcrumbs.js" defer></script>
+</head>
+<body>
+    <header id="site-header">
+        <nav class="nav-container">
+            <a href="./index.html" class="logo">Escala</a>
+          
+            <button id="menu-toggle" class="hamburger" aria-label="Toggle Menu">
+              ☰
+            </button>
+          
+            <div class="nav-links" id="nav-links">
+              <a href="../courses/course.html">Courses</a>
+              <a href="../wishlist/wishlist.html">Wishlist</a>
+              <a href="index.html">Cart</a>
+              <a href="../dashboard/index.html">Dashboard</a>
+              <a href="../auth/login.html">Login</a>
+            </div>
+        </nav>
+          
+      </header>
+      
+
+  <main class="cart-container">
+    <nav class="breadcrumbs"></nav>
+    <h2>Your Shopping Cart</h2>
+    <div id="cart-items">
+      <!-- Items will be rendered by JS -->
+    </div>
+
+    <div class="cart-summary">
+      <p><strong>Total: </strong>S/ <span id="cart-total">0</span></p>
+      <a href="../checkout/index.html" class="btn primary">Proceed to Checkout</a>
+    </div>
+  </main>
+
+  <footer id="site-footer">
+    <p>&copy; 2025 Escala</p>
+  </footer>
+</body>
+</html>
+
