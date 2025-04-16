@@ -8,45 +8,49 @@
   <script src="../js/login.js" defer></script>
   <script src="../js/breadcrumbs.js" defer></script>
 </head>
-<body>
-    <header id="site-header">
-        <nav class="nav-container">
-            <a href="../index.html" class="logo">Escala</a>
-          
-            <button id="menu-toggle" class="hamburger" aria-label="Toggle Menu">
-              ☰
-            </button>
-          
-            <div class="nav-links" id="nav-links">
-              <a href="../courses/course.html">Courses</a>
-              <a href="../wishlist/wishlist.html">Wishlist</a>
-              <a href="../cart/index.html">Cart</a>
-              <a href="../dashboard/index.html">Dashboard</a>
-              <a href="login.html">Login</a>
-            </div>
-        </nav>
-          
-      </header>
-      
 
+<body>
+  <!-- Header -->
+  <header id="site-header">
+    <nav class="nav-container">
+      <a href="../index.html" class="logo"><span>Escala</span></a>
+      <button id="menu-toggle" class="hamburger" aria-label="Toggle Menu">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="../courses/course.html">Courses</a>
+        <a href="../wishlist/wishlist.html">Wishlist</a>
+        <a href="../cart/index.html">Cart</a>
+        <a href="../dashboard/index.html">Dashboard</a>
+        <a href="login.html" class="active">Login</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs"></nav>
+
+  <!-- Login Form -->
   <main class="auth-container">
-    <nav class="breadcrumbs"></nav>
-    <h2>Sign In to Escala</h2>
+    <h2>Welcome Back</h2>
+    <p>Please log in to access your account.</p>
+
     <form id="login-form">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required />
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
 
       <label for="password">Password</label>
-      <input type="password" id="password" name="password" required />
+      <input type="password" id="password" name="password" placeholder="********" required />
 
       <button type="submit" class="btn primary">Login</button>
     </form>
-    <p>Don't have an account? <a href="./register.html">Register here</a></p>
+
+    <p class="auth-switch">
+      Don't have an account? <a href="./register.html">Register here</a>
+    </p>
   </main>
 
+  <!-- Footer -->
   <footer id="site-footer">
     <p>&copy; 2025 Escala</p>
   </footer>
 </body>
 </html>
-

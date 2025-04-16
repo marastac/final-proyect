@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Details</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/course.js" defer></script>
+    <script src="../js/auth.js" defer></script>
+    <script src="../js/breadcrumbs.js" defer></script>
+  </head>
+  <body>
+    <div id="loader" class="loader-overlay">
+      <div class="spinner"></div>
+    </div>
+
+    <header id="site-header">
+      <nav class="nav-container">
+        <a href="../index.html" class="logo"><span>Escala</span></a>
+        <button id="menu-toggle" class="hamburger" aria-label="Toggle Menu">☰</button>
+        <div class="nav-links" id="nav-links">
+          <a href="../courses/course.html">Courses</a>
+          <a href="../wishlist/wishlist.html">Wishlist</a>
+          <a href="../cart/index.html">Cart</a>
+          <a href="../dashboard/index.html">Dashboard</a>
+          <a href="../auth/login.html" id="auth-link">Login</a>
+        </div>
+      </nav>
+    </header>
+
+    <nav class="breadcrumbs"></nav>
+
+    <main class="featured-courses">
+      <section class="course-box course-detail">
+        <div class="gallery">
+          <div class="main-image">
+            <img id="mainImage" src="" alt="Course Image" />
+          </div>
+          <div class="thumbnails" id="thumbnails"></div>
+        </div>
+        <div class="info">
+          <h2 id="course-title">Course Title</h2>
+          <p class="price">
+            S/ <span id="course-price">--</span>
+            <span class="discount-flag">20% OFF</span>
+          </p>
+          <p id="course-description">Description here...</p>
+
+          <div class="options">
+            <label>Choose a color:</label>
+            <ul class="color-list">
+              <li class="color-option" data-color="blue" style="background-color: blue"></li>
+              <li class="color-option" data-color="orange" style="background-color: orange"></li>
+              <li class="color-option" data-color="green" style="background-color: green"></li>
+            </ul>
+          </div>
+
+          <div class="quantity">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" min="1" value="1" />
+          </div>
+
+          <div class="actions">
+            <button class="btn primary" id="addToCartBtn">Add to Cart</button>
+            <button class="btn secondary" id="addToWishlistBtn">Add to Wishlist</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="newsletter">
+      <h2>Subscribe for New Courses</h2>
+      <p>Get updates on the latest content, deals, and features.</p>
+      <input type="email" placeholder="Your email address" />
+      <button class="btn primary">Subscribe</button>
+    </section>
+
+    <footer id="site-footer">
+      <p>&copy; 2025 Escala</p>
+    </footer>
+  </body>
+</html>

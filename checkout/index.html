@@ -5,41 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Checkout - Escala</title>
   <link rel="stylesheet" href="../css/style.css" />
-  <script src="../js/checkout.js" defer></script>
+  <script src="../js/auth.js" defer></script>
   <script src="../js/authGuard.js" defer></script>
   <script src="../js/breadcrumbs.js" defer></script>
+  <script src="../js/checkout.js" defer></script>
   <script src="../js/confeti.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
 </head>
-<body>
-    <div id="loader" class="loader-overlay">
-        <div class="spinner"></div>
-    </div>
-      
-    <header id="site-header">
-        <nav class="nav-container">
-            <a href="../index.html" class="logo">Escala</a>
-          
-            <button id="menu-toggle" class="hamburger" aria-label="Toggle Menu">
-              ☰
-            </button>
-          
-            <div class="nav-links" id="nav-links">
-              <a href="../courses/course.html">Courses</a>
-              <a href="../wishlist/wishlist.html">Wishlist</a>
-              <a href="../cart/index.html">Cart</a>
-              <a href="../dashboard/index.html">Dashboard</a>
-              <a href="../auth/login.html">Login</a>
-            </div>
-        </nav>
-          
-      </header>
-      
 
+<body>
+  <!-- Loader -->
+  <div id="loader" class="loader-overlay hidden">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Header -->
+  <header id="site-header">
+    <nav class="nav-container">
+      <a href="../index.html" class="logo"><span>Escala</span></a>
+      <button id="menu-toggle" class="hamburger" aria-label="Toggle Menu">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="../courses/course.html">Courses</a>
+        <a href="../wishlist/wishlist.html">Wishlist</a>
+        <a href="../cart/index.html">Cart</a>
+        <a href="../dashboard/index.html">Dashboard</a>
+        <a href="../auth/profile.html">Profile</a>
+        <a href="../auth/login.html" id="auth-link">Login</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs"></nav>
+
+  <!-- Main Checkout Section -->
   <main class="checkout-container">
-    <nav class="breadcrumbs"></nav>
     <h2>Checkout</h2>
+
+    <!-- Form Section -->
     <form id="checkout-form">
       <label for="name">Full Name</label>
       <input type="text" id="name" required />
@@ -57,19 +59,24 @@
         <option value="paypal">PayPal</option>
       </select>
 
+      <h3>Order Summary</h3>
+      <div id="order-summary"></div>
+      <p><strong>Total:</strong> <span id="total-amount">S/ 0.00</span></p>
+
       <button type="submit" class="btn primary">Place Order</button>
     </form>
 
+    <!-- Confirmation Section -->
     <div id="confirmation" class="hidden">
-      <h3>✅ Order placed successfully!</h3>
-      <p>Thank you for your purchase. A confirmation email will be sent shortly.</p>
-      <a href="../dashboard/index.html" class="btn primary">Go to Dashboard</a>
+      <h3>✅ Order Placed Successfully!</h3>
+      <p>Thank you for your purchase. A confirmation email will be sent to you shortly.</p>
+      <a href="../dashboard/index.html" class="btn secondary">Go to Dashboard</a>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer id="site-footer">
     <p>&copy; 2025 Escala</p>
   </footer>
 </body>
 </html>
-

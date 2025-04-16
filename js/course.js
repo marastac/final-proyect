@@ -1,119 +1,98 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const courseId = urlParams.get("id");
-  
-    // Simulated data (can be replaced with fetch)
-    const courses = [
-      {
-        id: "curso001",
-        title: "Intro to Artificial Intelligence",
-        description: "Learn the basics of AI, machine learning and neural networks.",
-        price: 120,
-        discount: 20,
-        images: [
-          "../images/cursos/ia-intro.webp",
-          "../images/cursos/ia-preview1.webp",
-          "../images/cursos/ia-preview2.webp"
-        ],
-        colors: ["Blue", "Black", "Silver"]
-      }
-    ];
-  
-    const course = courses.find(c => c.id === courseId);
-    if (!course) {
-      alert("Course not found.");
+// course.js - Improved dynamic version (full features retained)
+
+const courseId = new URLSearchParams(window.location.search).get("id");
+
+async function fetchCourseData() {
+  try {
+    const res = await fetch("../json/cursos.json");
+    const cursos = await res.json();
+    const curso = cursos.find(c => c.id === courseId);
+
+    if (!curso) {
+      document.querySelector(".course-detail").innerHTML = `<p>Course not found.</p>`;
       return;
     }
-  
-    // Fill course data
-    document.getElementById("course-title").textContent = course.title;
-    document.getElementById("course-description").textContent = course.description;
-  
-    const priceElement = document.getElementById("course-price");
-    const discountFlag = document.getElementById("discount-flag");
-  
-    if (course.discount) {
-      const discounted = (course.price * (1 - course.discount / 100)).toFixed(2);
-      priceElement.textContent = `S/ ${discounted}`;
-      discountFlag.textContent = `-${course.discount}%`;
-    } else {
-      priceElement.textContent = `S/ ${course.price}`;
-      discountFlag.style.display = "none";
-    }
-  
-    // Carousel
-    const mainImage = document.getElementById("main-image");
-    const thumbnails = document.getElementById("image-thumbnails");
-    mainImage.src = course.images[0];
-  
-    course.images.forEach(img => {
-      const thumb = document.createElement("img");
-      thumb.src = img;
-      thumb.classList.add("thumbnail");
-      thumb.addEventListener("click", () => {
-        mainImage.src = img;
-      });
-      thumbnails.appendChild(thumb);
-    });
-  
-    // Colors
-    const colorList = document.getElementById("color-list");
-    course.colors.forEach(color => {
-      const btn = document.createElement("button");
-      btn.textContent = color;
-      btn.classList.add("color-btn");
-      btn.addEventListener("click", () => {
-        document.querySelectorAll(".color-btn").forEach(b => b.classList.remove("selected"));
-        btn.classList.add("selected");
-      });
-      colorList.appendChild(btn);
-    });
-  
-    // Add to cart
-    document.getElementById("add-to-cart").addEventListener("click", () => {
-      const quantity = parseInt(document.getElementById("quantity").value);
-      const selectedColor = document.querySelector(".color-btn.selected")?.textContent || "Default";
-      if (quantity < 1) return alert("Please select a valid quantity.");
-  
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      const existing = cart.find(p => p.id === course.id && p.color === selectedColor);
-      if (existing) {
-        existing.quantity += quantity;
-      } else {
-        cart.push({
-          id: course.id,
-          title: course.title,
-          price: course.price,
-          image: course.images[0],
-          color: selectedColor,
-          quantity: quantity
-        });
-      }
-      localStorage.setItem("cart", JSON.stringify(cart));
-      animateCartIcon();
-      alert("🛒 Course added to cart!");
-    });
-  
-    // Add to wishlist
-    document.getElementById("add-to-wishlist").addEventListener("click", () => {
-      let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-  
-      const product = {
-        id: course.id,
-        title: course.title,
-        price: course.price,
-        color: document.querySelector(".color-btn.selected")?.textContent || "Default",
-        image: course.images[0]
-      };
-  
-      const exists = wishlist.find(w => w.id === product.id && w.color === product.color);
-      if (!exists) {
-        wishlist.push(product);
-        localStorage.setItem("wishlist", JSON.stringify(wishlist));
-        alert(`❤️ ${course.title} added to your wishlist.`);
-      } else {
-        alert("This course is already in your wishlist.");
-      }
-    });
-  });
-  
+
+    renderCourse(curso);
+  } catch (err) {
+    console.error("Error loading course:", err);
+  }
+}
+
+function renderCourse(course) {
+  const courseDetail = document.querySelector(".course-detail");
+
+  const images = [
+    `../${course.imagen}`,
+    `../${course.imagen}`,
+    `../${course.imagen}`
+  ];
+
+  courseDetail.innerHTML = `
+    <section class="course-box">
+      <div class="gallery">
+        <div class="main-image">
+          <img id="mainImage" src="${images[0]}" alt="${course.titulo}" />
+        </div>
+        <div class="thumbnails">
+          ${images.map(img => `<img src="${img}" onclick="document.getElementById('mainImage').src='${img}'" />`).join('')}
+        </div>
+      </div>
+      <div class="info">
+        <h2>${course.titulo}</h2>
+        <p class="price">S/ ${course.precio} <span class="discount-flag">20% OFF</span></p>
+        <p class="description">${course.descripcion}</p>
+
+        <div class="options">
+          <label for="color">Choose a color:</label>
+          <select id="color">
+            <option value="blue">Blue</option>
+            <option value="orange">Orange</option>
+            <option value="green">Green</option>
+          </select>
+        </div>
+
+        <div class="quantity">
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" min="1" value="1" />
+        </div>
+
+        <div class="actions">
+          <button class="btn primary" onclick="addToCart('${course.id}')">Add to Cart</button>
+          <button class="btn secondary" onclick="addToWishlist('${course.id}')">Add to Wishlist</button>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function addToCart(courseId) {
+  const quantity = parseInt(document.getElementById("quantity").value);
+  const color = document.getElementById("color").value;
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const exists = cart.find(item => item.id === courseId && item.color === color);
+
+  if (exists) {
+    exists.quantity += quantity;
+  } else {
+    cart.push({ id: courseId, quantity, color });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Course added to cart!");
+}
+
+function addToWishlist(courseId) {
+  let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+  if (!wishlist.includes(courseId)) {
+    wishlist.push(courseId);
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    alert("Added to your wishlist!");
+  } else {
+    alert("This course is already in your wishlist.");
+  }
+}
+
+fetchCourseData();
